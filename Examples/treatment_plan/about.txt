@@ -1,0 +1,8 @@
+The treatment plan table is formated as follows
+
+ID | Title | Vet_Id | Body 
+
+
+Where ID, title, and vet id are strings, and body is a json object.
+example_body.json contains an example of how the body json should be
+formatted.
