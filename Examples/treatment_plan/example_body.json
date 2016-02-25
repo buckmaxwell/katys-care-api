@@ -1,103 +1,96 @@
 {
-	"head": "86937ab-9840-4c5d-b29f-cee613743676",
-	"nodes": [
-		{
-			"id": "86937ab-9840-4c5d-b29f-cee613743676",
-			"description": "head",
-			"icon": null,
-			"wait": 0,
-			"children": [
-				"d1ccebc3-48b1-45af-9075-d33f64e26e9d",
-				"e0915e62-c2e5-442b-90d7-f040952169b0",
-				"8b0f1293-4e45-4971-9aa0-ac7b2ae70154",
-				"648f01bf-8398-4d5d-bcf0-bea6bcc0b436"
-			]
-		}
-		{
-			"id": "d1ccebc3-48b1-45af-9075-d33f64e26e9d",
-			"description" : "Morbund or unfit for slaughter",
-			"icon": "http://example.com/moribund.jpg",
-			"wait": 0, 
-			"children": [
-				"81c64ff9-c354-4fc9-b8d1-dd1a3986fed8" 
-			]
-		},
-		{
-			"id": "e0915e62-c2e5-442b-90d7-f040952169b0",
-			"description": "Separated for treatment or observation",
-			"icon": "http://example.com/separated.jpg",
-			"wait": 48,
-			"children": [
-				"a388a993-a4ee-40b5-8629-3b21e29c480e",
-				"9cbe298c-660f-4a88-a43b-36fe0ae0c47c"
-			]
-		},
-		{
-			"id": "8b0f1293-4e45-4971-9aa0-ac7b2ae70154",
-			"description": "No medications on board, fit for transport",
-			"icon": "http://example.com/no_med_transportable.jpg",
-			"wait": 0,
-			"children": [
-				"59811a40-c9e8-4bb4-830a-e477df714f75"
-			]
+    "data": [{
+        "type": "treatment_plans",
+        "id": "ed86977e-ac5d-44b2-905b-f1d13562f869",
+        "attributes": {
+            "title": "Ailing Dairy Cow Treatment1",
+            "body": {
+                "head": "86937ab-9840-4c5d-b29f-cee613743676",
+                "86937ab-9840-4c5d-b29f-cee613743676": {
+                    "description": "head",
+                    "icon": null,
+                    "wait": 0,
+                    "children": [
+                        "d1ccebc3-48b1-45af-9075-d33f64e26e9d",
+                        "e0915e62-c2e5-442b-90d7-f040952169b0",
+                        "8b0f1293-4e45-4971-9aa0-ac7b2ae70154",
+                        "648f01bf-8398-4d5d-bcf0-bea6bcc0b436"
+                    ]
+                },
+                "d1ccebc3-48b1-45af-9075-d33f64e26e9d": {
+                    "description": "Morbund or unfit for slaughter",
+                    "icon": "http://example.com/moribund.jpg",
+                    "wait": 0,
+                    "children": [
+                        "81c64ff9-c354-4fc9-b8d1-dd1a3986fed8"
+                    ]
+                },
+                "e0915e62-c2e5-442b-90d7-f040952169b0": {
+                    "description": "Separated for treatment or observation",
+                    "icon": "http://example.com/separated.jpg",
+                    "wait": 48,
+                    "children": [
+                        "a388a993-a4ee-40b5-8629-3b21e29c480e",
+                        "9cbe298c-660f-4a88-a43b-36fe0ae0c47c"
+                    ]
+                },
+                "8b0f1293-4e45-4971-9aa0-ac7b2ae70154": {
+                    "description": "No medications on board, fit for transport",
+                    "icon": "http://example.com/no_med_transportable.jpg",
+                    "wait": 0,
+                    "children": [
+                        "59811a40-c9e8-4bb4-830a-e477df714f75"
+                    ]
+                },
+                "648f01bf-8398-4d5d-bcf0-bea6bcc0b436": {
+                    "description": "Unfit for transport",
+                    "icon": "http://example.com/untransportable.jpg",
+                    "wait": 0,
+                    "children": [
+                        "bafb81e5-c283-47e9-86d6-c9bdc2dd5541"
+                    ]
+                },
+                "81c64ff9-c354-4fc9-b8d1-dd1a3986fed8": {
+                    "description": "Euthanize immediately",
+                    "icon": "http://example.com/euthanize.jpg",
+                    "wait": 0,
+                    "children": [
 
-		},
-		{
-			"id": "648f01bf-8398-4d5d-bcf0-bea6bcc0b436",
-			"description": "Unfit for transport",
-			"icon": "http://example.com/untransportable.jpg",
-			"wait": 0,
-			"children": [
-				"bafb81e5-c283-47e9-86d6-c9bdc2dd5541"
-			]
+                    ]
+                },
+                "a388a993-a4ee-40b5-8629-3b21e29c480e": {
+                    "description": "No response to treatment, condition declining",
+                    "icon": "http://example.com/no_response_to_treatment.jpg",
+                    "wait": 0,
+                    "children": [
+                        "81c64ff9-c354-4fc9-b8d1-dd1a3986fed8"
+                    ]
+                },
+                "9cbe298c-660f-4a88-a43b-36fe0ae0c47c": {
+                    "description": "Positive response to treatment, condition improves",
+                    "icon": "http://example.com/positive_response_to_treatment.jpg",
+                    "wait": 0,
+                    "children": [
+                        "d4430ee2-f33e-4798-bbd4-fdda82cbc665"
+                    ]
+                },
+                "d4430ee2-f33e-4798-bbd4-fdda82cbc665": {
+                    "description": "Continue treatment, return animal to group",
+                    "icon": "http://example.com/continue_treatment_and_return.jpg",
+                    "wait": 0,
+                    "children": [
 
-		},
-		{
-			"id": "81c64ff9-c354-4fc9-b8d1-dd1a3986fed8",
-			"description": "Euthanize immediately",
-			"icon": "http://example.com/euthanize.jpg",
-			"wait": 0,
-			"children": []
-		},
-		{
-			"id": "a388a993-a4ee-40b5-8629-3b21e29c480e",
-			"description": "No response to treatment, condition declining",
-			"icon": "http://example.com/no_response_to_treatment.jpg",
-			"wait": 0,
-			"children": [
-				"81c64ff9-c354-4fc9-b8d1-dd1a3986fed8"
-			]
-		},
-		{
-			"id": "9cbe298c-660f-4a88-a43b-36fe0ae0c47c",
-			"description": "Positive response to treatment, condition improves",
-			"icon": "http://example.com/positive_response_to_treatment.jpg",
-			"wait": 0,
-			"children": [
-				"d4430ee2-f33e-4798-bbd4-fdda82cbc665"
-			]
-		},
-		{
-			"id": "d4430ee2-f33e-4798-bbd4-fdda82cbc665",
-			"description": "Continue treatment, return animal to group",
-			"icon": "http://example.com/continue_treatment_and_return.jpg",
-			"wait": 0,
-			"children": []
-		},
-		{
-			"id": "59811a40-c9e8-4bb4-830a-e477df714f75",
-			"description": "Send for slaughter",
-			"icon": "http://example.com/send_for_slaughter.jpg",
-			"wait": 0,
-			"children": []
-		},
-		{
-			"id": "bafb81e5-c283-47e9-86d6-c9bdc2dd5541",
-			"description": "On-farm slaughter where permitted, or immediate euthanasia",
-			"icon": "http://example.com/on_farm_salugher_or_euthanize.jpg",
-			"wait": 0,
-			"children": []
-		}
+                    ]
+                },
+                "59811a40-c9e8-4bb4-830a-e477df714f75": {
+                    "description": "Send for slaughter",
+                    "icon": "http://example.com/send_for_slaughter.jpg",
+                    "wait": 0,
+                    "children": [
 
-	]
+                    ]
+                }
+            }
+        }
+    }]
 }
