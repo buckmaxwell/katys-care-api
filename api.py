@@ -73,9 +73,6 @@ def authenticate(level=AuthenticationLevels.ANY, user_id=None):
 # LOGIN METHODS#########################################################################################################
 @app.route('/v1/token', methods=['POST'])  # this might be a patch method
 def get_token():
-    print "I AM HEREEEEE"
-    print "req data", request.data
-    print "req json", json.loads(request.data)
     request_json = json.loads(request.data)
     try:
         response = user_module.login(request_json, request.args)
