@@ -18,7 +18,7 @@ class FarmV1(SerializableStructuredNode):
     name = StringProperty(required=True)
 
     # RELATIONSHIPS
-    calves = RelationshipTo('calf.CalfV1', 'HAS_FARM', cardinality=ZeroOrMore, model=SerializableStructuredRel)
+    calves = RelationshipFrom('calf.CalfV1', 'HAS_FARM', cardinality=ZeroOrMore, model=SerializableStructuredRel)
 
     veterinarian = RelationshipTo(
         'user.UserV1', 'HAS_VETS', cardinality=ZeroOrOne, model=SerializableStructuredRel
