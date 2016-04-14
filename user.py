@@ -26,7 +26,8 @@ class UserV1(SerializableStructuredNode):
     email = AliasProperty(to='id')
     role = StringProperty(default=UserRoles.USER)
     password = StringProperty()
-    works_for = FunctionProperty(default='self.works_for.all()[0].id')
+    works_for = FunctionProperty(default='self.works_for.all()')
+
 
     # RELATIONSHIPS
     token = RelationshipTo(
