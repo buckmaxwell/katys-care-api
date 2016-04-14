@@ -7,6 +7,7 @@ from uuid import uuid4
 from constants import UserRoles
 import treatment_plan
 import farm
+from neoapi import FunctionProperty
 
 
 class UserV1(SerializableStructuredNode):
@@ -25,6 +26,7 @@ class UserV1(SerializableStructuredNode):
     email = AliasProperty(to='id')
     role = StringProperty(default=UserRoles.USER)
     password = StringProperty()
+    works_for = FunctionProperty(default='self.works_for.all()[0].id')
 
     # RELATIONSHIPS
     token = RelationshipTo(
