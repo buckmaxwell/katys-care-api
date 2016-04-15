@@ -1,4 +1,4 @@
-from neoapi import SerializableStructuredNode, SerializableStructuredRel
+from neoapi import SerializableStructuredNode, SerializableStructuredRel, FunctionProperty
 from neoapi import StringProperty, ZeroOrOne, BooleanProperty, DateTimeProperty, ZeroOrMore, AliasProperty
 from neomodel import RelationshipTo, RelationshipFrom
 from katysutils import id_generator
@@ -16,6 +16,7 @@ class FarmV1(SerializableStructuredNode):
     type = StringProperty(default='farms')
     id = StringProperty(default=id_generator, unique_index=True)
     name = StringProperty(required=True)
+    default_treatment_plan = FunctionProperty(default="[x.id for x in veternarian.single().treatment_plans.all() if x.default]")
 
     # RELATIONSHIPS
     calves = RelationshipFrom('calf.CalfV1', 'HAS_FARM', cardinality=ZeroOrMore, model=SerializableStructuredRel)

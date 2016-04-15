@@ -1,4 +1,4 @@
-from neoapi import SerializableStructuredNode, SerializableStructuredRel
+from neoapi import SerializableStructuredNode, SerializableStructuredRel, BooleanProperty
 from neoapi import StringProperty, ZeroOrOne, ZeroOrMore
 from neomodel import JSONProperty
 from neomodel import RelationshipTo, RelationshipFrom
@@ -16,6 +16,7 @@ class TreatmentPlanV1(SerializableStructuredNode):
     # ATTRIBUTES
     type = StringProperty(default='treatment_plans')
     id = StringProperty(default=id_generator, unique_index=True)
+    default = BooleanProperty(default=False)
     title = StringProperty()
     body = JSONProperty()
 
