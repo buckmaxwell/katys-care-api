@@ -16,7 +16,7 @@ class TreatmentPlanV1(SerializableStructuredNode):
     # ATTRIBUTES
     type = StringProperty(default='treatment_plans')
     id = StringProperty(default=id_generator, unique_index=True)
-    default = BooleanProperty(default=False)
+    #default = BooleanProperty(default=False)
     title = StringProperty()
     body = JSONProperty()
 
