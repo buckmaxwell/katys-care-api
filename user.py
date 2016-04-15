@@ -26,7 +26,7 @@ class UserV1(SerializableStructuredNode):
     email = AliasProperty(to='id')
     role = StringProperty(default=UserRoles.USER)
     password = StringProperty()
-    farm_ids = FunctionProperty(default='[x.id for x in self.works_for.all()]')
+    #farm_ids = FunctionProperty(default='[x.id for x in self.works_for.all()]')
 
 
     # RELATIONSHIPS
