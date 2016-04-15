@@ -3,9 +3,6 @@ from neoapi import StringProperty, ZeroOrOne, BooleanProperty, DateTimeProperty,
 from neomodel import RelationshipTo, RelationshipFrom
 from katysutils import id_generator
 
-
-def get_default_treatment_plan():
-
 class FarmV1(SerializableStructuredNode):
     """This is the Farm entity"""
 
