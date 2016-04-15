@@ -18,7 +18,7 @@ class FarmV1(SerializableStructuredNode):
     type = StringProperty(default='farms')
     id = StringProperty(default=id_generator, unique_index=True)
     name = StringProperty(required=True)
-    default_treatment_plan = FunctionProperty(default="self.get_default_treatment_plan")
+    default_treatment_plan = FunctionProperty(default="self.get_default_treatment_plan()")
 
     # RELATIONSHIPS
     calves = RelationshipFrom('calf.CalfV1', 'HAS_FARM', cardinality=ZeroOrMore, model=SerializableStructuredRel)
