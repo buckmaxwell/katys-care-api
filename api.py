@@ -177,11 +177,13 @@ def treatment_plan_wrapper(tp_id):
     @authenticate(AuthenticationLevels.ANY)
     def public_calls():
         if request.method == 'POST':
+            print "IN HERE"
             user_id = user_from_token(request.headers['Authorization'])
             if 'relationships' not in req_data['data']:
                 req_data['data']['relationships'] = dict()
             req_data['data']['relationships']['veterinarian'] = dict()
             req_data['data']['relationships']['veterinarian']['data'] = {'type': 'users', 'id': user_id}
+            print "OUT HERE"
             return TreatmentPlan.create_resource(req_data)
         elif request.method == 'GET' and tp_id:
             return TreatmentPlan.get_resource(request.args, tp_id)
