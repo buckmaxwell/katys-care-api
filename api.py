@@ -173,11 +173,20 @@ def treatment_plan_wrapper(tp_id):
     response = None
     tp_id = tp_id.lower() if tp_id else tp_id
     req_data = json.loads(request.data) if request.data else dict()
+    tp_owner_id = None
+
+    try:  # Attempt to find user associated with treatment plan
+        if tp_id:
+            tp = TreatmentPlan.nodes.get(id=tp_id)
+            tp_owner = tp.veterinarian.single()
+            if tp_owner:
+                tp_owner_id = tp_owner.id
+    except DoesNotExist:
+        return application_codes.error_response([application_codes.RESOURCE_NOT_FOUND])
 
     @authenticate(AuthenticationLevels.ANY)
     def public_calls():
         if request.method == 'POST':
-            print "IN HERE"
             user_id = user_from_token(request.headers['Authorization'])
             if 'relationships' not in req_data['data']:
                 req_data['data']['relationships'] = dict()
@@ -190,7 +199,7 @@ def treatment_plan_wrapper(tp_id):
         elif request.method == 'GET':
             return TreatmentPlan.get_collection(request.args)
 
-    @authenticate(AuthenticationLevels.USER)
+    @authenticate(AuthenticationLevels.USER, user_id=tp_owner_id)
     def private_calls():
         if request.method == 'PATCH':
             return TreatmentPlan.update_resource(req_data, tp_id)
