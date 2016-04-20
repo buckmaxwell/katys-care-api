@@ -168,7 +168,7 @@ def farm_wrapper(farm_id):
 
 # TREATMENT PLAN METHODS################################################################################################
 @app.route('/v1/treatment_plans', defaults={'tp_id': None},  methods=['GET', 'POST'])
-@app.route('/v1/treatment_plans/<tp_id>', methods=['GET', 'PATCH'])
+@app.route('/v1/treatment_plans/<tp_id>', methods=['GET', 'PATCH', 'DELETE'])
 def treatment_plan_wrapper(tp_id):
     response = None
     tp_id = tp_id.lower() if tp_id else tp_id
