@@ -98,9 +98,9 @@ def user_wrapper(id):
         if request.data:
             req_data = json.loads(request.data)
             if "email" in req_data["data"]["attributes"]:
-                    req_data["email"] = req_data["email"].lower()  # emails should be lower case
+                    req_data["data"]["attributes"]["email"] = req_data["data"]["attributes"]["email"].lower()  # emails should be lower case
             if "id" in req_data["data"]["attributes"]:
-                req_data["id"] = req_data["id"].lower()
+                req_data["data"]["attributes"]["id"] = req_data["data"]["attributes"]["id"].lower()
     except KeyError:
         return application_codes.error_response([application_codes.BAD_FORMAT_VIOLATION])
 
