@@ -94,12 +94,15 @@ def user_wrapper(id):
         id = id.lower()
 
     req_data = None
-    if request.data:
-        req_data = json.loads(request.data)
-        if "email" in req_data:
-                req_data["email"] = req_data["email"].lower()  # emails should be lower case
-        if "id" in req_data:
-            req_data["id"] = req_data["id"].lower()
+    try:
+        if request.data:
+            req_data = json.loads(request.data)
+            if "email" in req_data["data"]["attributes"]:
+                    req_data["email"] = req_data["email"].lower()  # emails should be lower case
+            if "id" in req_data["data"]["attributes"]:
+                req_data["id"] = req_data["id"].lower()
+    except KeyError:
+        return application_codes.error_response([application_codes.BAD_FORMAT_VIOLATION])
 
     def post_user():
         return User.create_resource(req_data)
@@ -192,7 +195,6 @@ def treatment_plan_wrapper(tp_id):
                 req_data['data']['relationships'] = dict()
             req_data['data']['relationships']['veterinarian'] = dict()
             req_data['data']['relationships']['veterinarian']['data'] = {'type': 'users', 'id': user_id}
-            print "OUT HERE"
             return TreatmentPlan.create_resource(req_data)
         elif request.method == 'GET' and tp_id:
             return TreatmentPlan.get_resource(request.args, tp_id)
