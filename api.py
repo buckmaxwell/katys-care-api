@@ -228,6 +228,23 @@ def calf_wrapper(calf_id):
     response = None
     req_data = json.loads(request.data) if request.data else dict()
 
+    try:  # Authorize here (not ideal, but this type of auth not supported by def at top of page)
+        if calf_id:
+            token = request.headers['Authorization']
+            the_user = accesstoken.AccessTokenV1.nodes.get(id=token).user.single()
+            calf = Calf.nodes.get(id=calf_id)
+            permitted_users = calf.farm.single().staff.all()
+            if the_user in permitted_users:
+                pass
+            else:
+                raise katyscareerror.KatysCareError
+    except DoesNotExist:
+        return application_codes.error_response([application_codes.BAD_AUTHENTICATION])
+    except katyscareerror.KatysCareError:
+        return application_codes.error_response([application_codes.FORBIDDEN_VIOLATION])
+    except KeyError:
+        return application_codes.error_response([application_codes.NO_AUTHENTICATION])
+
     @authenticate(AuthenticationLevels.ANY)
     def public_calls():
         if request.method == 'POST':
