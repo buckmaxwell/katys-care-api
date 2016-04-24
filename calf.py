@@ -1,5 +1,5 @@
 from neoapi import SerializableStructuredNode, SerializableStructuredRel
-from neoapi import StringProperty,ZeroOrOne, BooleanProperty, DateTimeProperty
+from neoapi import StringProperty, ZeroOrOne, BooleanProperty, DateTimeProperty
 from neomodel import RelationshipTo
 
 
@@ -10,6 +10,7 @@ class CalfV1(SerializableStructuredNode):
 
     # INFO
     version = '1.0.0'
+    dates = ['wait_expires']
 
     # ATTRIBUTES
     type = StringProperty(default='calves')
