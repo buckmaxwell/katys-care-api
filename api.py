@@ -260,7 +260,7 @@ def calf_wrapper(calf_id):
         elif request.method == 'GET':
             return Calf.get_collection(request.args)
 
-    @authenticate(AuthenticationLevels.USER)
+    @authenticate(AuthenticationLevels.ANY)
     def private_calls():
         if request.method == 'PATCH':
             return Calf.update_resource(req_data, calf_id)
