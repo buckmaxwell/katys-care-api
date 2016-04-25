@@ -264,8 +264,14 @@ def calf_wrapper(calf_id):
     def private_calls():
         if request.method == 'PATCH':
             return Calf.update_resource(req_data, calf_id)
-        elif request.method == 'DELETE':
-            return Calf.deactivate_resource(calf_id)
+        elif request.method == 'DELETE':  # WARNING: THIS DOES A FULL DELETE NOT A DEACTIVATE
+            try:
+                the_calf = Calf.nodes.get(id=calf_id)
+                the_calf.delete()
+            except DoesNotExist:
+                return application_codes.error_response([application_codes.RESOURCE_NOT_FOUND])
+            # return Calf.deactivate_resource(calf_id) (old behavior)
+            return '', 204
 
     if request.method in ['POST', 'GET']:
         response = public_calls()
