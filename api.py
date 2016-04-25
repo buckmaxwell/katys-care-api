@@ -218,7 +218,7 @@ def treatment_plan_wrapper(tp_id):
 
 # CALF METHODS##########################################################################################################
 @app.route('/v1/calves', defaults={'calf_id': None},  methods=['GET', 'POST'])
-@app.route('/v1/calves/<calf_id>', methods=['GET', 'PATCH'])
+@app.route('/v1/calves/<calf_id>', methods=['GET', 'PATCH', 'DELETE'])
 def calf_wrapper(calf_id):
     """
     NOTE: cid is case sensitive and determined by the user who creates the calf
