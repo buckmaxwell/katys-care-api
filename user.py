@@ -79,7 +79,7 @@ def login(request_form, request_args):
             accesstoken.AccessTokenV1.update_resource(new_token, u.token.single().id)
             r = accesstoken.AccessTokenV1.get_resource(request_args, u.token.single().id)
         else:
-            r = accesstoken.AccessTokenV1.create_resource(new_token)  # create the new token then connect it
+            r = accesstoken.AccessTokenV1.create_resource(new_token, request_args)  # create the new token then connect it
 
     except DoesNotExist:
         r = application_codes.error_response([application_codes.RESOURCE_NOT_FOUND])
